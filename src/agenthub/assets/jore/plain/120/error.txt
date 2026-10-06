@@ -1,0 +1,6 @@
+╭──────╮
+│  ×   │
+╰──┬───╯
+  /!\
+JORE ERROR
+Something didn't go as planned.

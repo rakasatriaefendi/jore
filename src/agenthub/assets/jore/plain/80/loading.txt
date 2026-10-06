@@ -1,0 +1,23 @@
+# frame 1
+   ╭──────╮
+   │ ●  ● │
+   │  ▾   │
+   ╰──┬───╯
+     [>_]
+JORE is thinking ·
+===FRAME===
+# frame 2
+   ╭──────╮
+   │ ◐  ● │
+   │  ▾   │
+   ╰──┬───╯
+     [>_]
+JORE is thinking ··
+===FRAME===
+# frame 3
+   ╭──────╮
+   │ ●  ◑ │
+   │  ▾   │
+   ╰──┬───╯
+     [>_]
+JORE is thinking ···

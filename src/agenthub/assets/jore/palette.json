@@ -1,0 +1,36 @@
+{
+  "dark": {
+    "background": "#090C10",
+    "deep_terminal": "#0A0D11",
+    "surface": "#141014",
+    "surface_alt": "#1C191F",
+    "border": "#3A3139",
+    "brand_pink": "#FF4FA3",
+    "brand_pink_bright": "#FF8BC7",
+    "brand_pink_deep": "#C2185B",
+    "magenta": "#A41063",
+    "mauve": "#B25888",
+    "text": "#FBF2EF",
+    "text_warm": "#F0DEDB",
+    "text_soft": "#CEB5C0",
+    "muted": "#A4899A",
+    "disabled": "#555058",
+    "success": "#22C55E",
+    "error": "#EF4444",
+    "warning": "#F59E0B",
+    "info": "#38BDF8"
+  },
+  "light": {
+    "success": "#15803D",
+    "error": "#B91C1C",
+    "warning": "#B45309",
+    "info": "#0369A1"
+  },
+  "logo_gradient": [
+    "#9D174D",
+    "#C2185B",
+    "#FF4FA3",
+    "#FF8BC7",
+    "#FBF2EF"
+  ]
+}

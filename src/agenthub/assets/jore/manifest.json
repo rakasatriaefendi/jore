@@ -1,0 +1,141 @@
+{
+  "package": "JORE TUI Assets",
+  "version": "1.0.0",
+  "profiles": {
+    "48": {
+      "cols": 48,
+      "assets": [
+        {
+          "file": "logo.txt",
+          "max_line_chars": 31
+        },
+        {
+          "file": "mascot.txt",
+          "max_line_chars": 31
+        },
+        {
+          "file": "welcome.txt",
+          "max_line_chars": 48
+        },
+        {
+          "file": "goodbye.txt",
+          "max_line_chars": 48
+        },
+        {
+          "file": "session.txt",
+          "max_line_chars": 48
+        },
+        {
+          "file": "loading.txt",
+          "max_line_chars": 39
+        },
+        {
+          "file": "success.txt",
+          "max_line_chars": 48
+        },
+        {
+          "file": "error.txt",
+          "max_line_chars": 48
+        },
+        {
+          "file": "model_icons.txt",
+          "max_line_chars": 44
+        }
+      ]
+    },
+    "80": {
+      "cols": 80,
+      "assets": [
+        {
+          "file": "logo.txt",
+          "max_line_chars": 80
+        },
+        {
+          "file": "mascot.txt",
+          "max_line_chars": 63
+        },
+        {
+          "file": "welcome.txt",
+          "max_line_chars": 80
+        },
+        {
+          "file": "goodbye.txt",
+          "max_line_chars": 80
+        },
+        {
+          "file": "session.txt",
+          "max_line_chars": 80
+        },
+        {
+          "file": "loading.txt",
+          "max_line_chars": 62
+        },
+        {
+          "file": "success.txt",
+          "max_line_chars": 80
+        },
+        {
+          "file": "error.txt",
+          "max_line_chars": 80
+        },
+        {
+          "file": "model_icons.txt",
+          "max_line_chars": 44
+        }
+      ]
+    },
+    "120": {
+      "cols": 120,
+      "assets": [
+        {
+          "file": "logo.txt",
+          "max_line_chars": 120
+        },
+        {
+          "file": "mascot.txt",
+          "max_line_chars": 103
+        },
+        {
+          "file": "welcome.txt",
+          "max_line_chars": 120
+        },
+        {
+          "file": "goodbye.txt",
+          "max_line_chars": 120
+        },
+        {
+          "file": "session.txt",
+          "max_line_chars": 120
+        },
+        {
+          "file": "loading.txt",
+          "max_line_chars": 102
+        },
+        {
+          "file": "success.txt",
+          "max_line_chars": 120
+        },
+        {
+          "file": "error.txt",
+          "max_line_chars": 120
+        },
+        {
+          "file": "model_icons.txt",
+          "max_line_chars": 44
+        }
+      ]
+    }
+  },
+  "roles": [
+    "RESET",
+    "PINK",
+    "PINK_BRIGHT",
+    "TEXT",
+    "MUTED",
+    "BORDER",
+    "SUCCESS",
+    "ERROR",
+    "WARNING",
+    "INFO"
+  ]
+}

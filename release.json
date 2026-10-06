@@ -1,0 +1,8 @@
+{
+  "product": "JORE",
+  "version": "1.12.6",
+  "channel": "stable",
+  "runtime_schema": 3,
+  "launcher": "jore",
+  "pronunciation": "Yor-Eh"
+}

@@ -1,0 +1,20 @@
++------------------------------ JORE // WELCOME -------------------------------+
+|            .-''''''''-.             JORE AGENT       |
+|         .-'  .------.  '-.          Yor-Eh // AI Terminal Companion[[|
+|       .'    /  .--.  \    '.                                                 |
+|      /     |  /    \  |     \       Build. Explore. Create. Together.|
+|     |      | |  o o | |      |                                               |
+|     |      | |   ^  | |      |      Available Agents |
+|     |       \ \ '_' / /       |     + Codex        ready |
+|      \       '.___.'        /       + OpenCode     ready |
+|       '.       /|\        .'        + Gemini       ready |
+|         '-.__ / | \ __.-'                                                    |
+|              /  |  \                Quick Start      |
+|             /  [>_] \               /help       show commands[[RESET]|
+|            /___/ \___\              /sessions   resume a session[[RES|
+|              J O R E                /model      change model|
+|            Y O R - E H              /exit       close JORE  |
+|                                                                              |
+|Model: GPT-5.6 Sol | Mode: Code | Session: jore_YYYYMMDD_HHMMSS | Onl|
+|> Welcome to JORE. What are we building today? _      |
++------------------------------------------------------------------------------+

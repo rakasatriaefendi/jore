@@ -1,0 +1,22 @@
++------------------ WELCOME -------------------+
+|JORE // YOR-EH        |
+|AI TERMINAL COMPANION       |
+|                                              |
+|      .-''''-.                                |
+|     /  .--.  \                               |
+|    |  / >< \  |                              |
+|    |  \ -- /  |                              |
+|     \  '--'  /                               |
+|      '._||_.'                                |
+|       [>_]    <3                             |
+|        JORE                                  |
+|                                              |
+|Available agents:            |
+|  + Codex      ready      |
+|  + OpenCode   ready      |
+|  + Gemini     ready      |
+|                                              |
+|/help  /sessions  /model  /exit[[RESET|
+|                                              |
+|> Welcome to JORE.    |
++----------------------------------------------+
