@@ -1,4 +1,8 @@
 import { Canvas } from '@react-three/fiber';
+import {
+  AgentLabelProjection,
+  type AgentLabelPositions,
+} from '../agents/AgentLabelProjection';
 import { OfficeCameraControls } from '../camera/OfficeCameraControls';
 import { initialCameraPosition } from '../camera/initialCameraPosition';
 import { FatalError } from '../ui/FatalError';
@@ -6,9 +10,17 @@ import { OfficeScene } from './OfficeScene';
 
 interface SceneCanvasProps {
   resetViewKey: number;
+  selectedAgentId: string | null;
+  onSelectAgent: (id: string) => void;
+  onProjectLabels: (positions: AgentLabelPositions) => void;
 }
 
-export function SceneCanvas({ resetViewKey }: SceneCanvasProps) {
+export function SceneCanvas({
+  resetViewKey,
+  selectedAgentId,
+  onSelectAgent,
+  onProjectLabels,
+}: SceneCanvasProps) {
   return (
     <Canvas
       camera={{ position: [...initialCameraPosition], fov: 45 }}
@@ -19,8 +31,12 @@ export function SceneCanvas({ resetViewKey }: SceneCanvasProps) {
       }
       aria-label="3D office prototype. Drag to orbit, scroll to zoom, and right-drag to pan."
     >
-      <OfficeScene />
+      <OfficeScene
+        selectedAgentId={selectedAgentId}
+        onSelectAgent={onSelectAgent}
+      />
       <OfficeCameraControls resetViewKey={resetViewKey} />
+      <AgentLabelProjection onProject={onProjectLabels} />
     </Canvas>
   );
 }

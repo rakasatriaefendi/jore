@@ -1,15 +1,18 @@
-# JORE Visualizer — Phase V1
+# JORE Visualizer — Phase V2
 
 Optional, read-only browser sidecar for JORE v1.13 development. JORE Core stays
 in WSL on the v1.12.6 baseline and runs independently of this frontend.
 
-V1 contains an HTML header, a dark React Three Fiber office built from primitive
-geometry, five labeled workstations, an entrance, wall whiteboard, archive area,
-and a controlled fatal-error fallback. The camera supports bounded orbit, pan,
-zoom, and a Reset View button. The static scene renders on demand. There are no
-downloaded assets, avatars, physics, event protocol, WebSocket client, or Core
-communication. Zustand is installed as required by the stack; no store is needed
-for this static scene.
+V2 contains an HTML header, a dark React Three Fiber office built from primitive
+geometry, five workstations, and five simple humanoid placeholders. The office
+also has an entrance, wall whiteboard, archive area, and a controlled fatal-error
+fallback. Each agent shares one body design and uses a role accent, badge shape,
+and readable label. Clicking an agent or its label selects it and opens a small
+identity panel. Selection is local UI state; agents have no activity state yet.
+The camera supports bounded orbit, pan, zoom, and a Reset View button. The scene
+renders on demand. There are no downloaded assets, physics, event protocol,
+WebSocket client, or Core communication. Zustand is installed as required by the
+stack; no store is needed for static agents and local UI selection.
 
 ## Run on Windows
 
@@ -45,10 +48,10 @@ npm.cmd run test:e2e
 - `build` type-checks source, tests, and configuration before creating `dist/`.
 - `lint` checks TypeScript and React rules and treats warnings as failures.
 - `format` applies Prettier; `format:check` checks without writing.
-- `test` runs the Vitest error-boundary tests using jsdom. `test:watch` watches.
+- `test` runs the Vitest error-boundary and registry tests. `test:watch` watches.
 - `test:e2e` builds and starts a dedicated production preview on port 4173, then
-  checks the header, root, live WebGL context, five workstation labels, Reset View,
-  and absence of browser errors. It saves a scene screenshot under ignored
+  checks the header, root, live WebGL context, five agent labels, selection panel,
+  Reset View, and absence of browser errors. It saves a scene screenshot under ignored
   `test-results/` and stops the server.
 - `preview` serves a previously built `dist/` on <http://127.0.0.1:4173>.
 
@@ -63,9 +66,9 @@ PowerShell execution-policy changes are needed. Ports 5173 and 4173 must be free
 ```text
 public/          Reserved for reviewed local assets; empty in V0
 src/app/         Bootstrap styling and application error boundary
+src/agents/      Typed agent registry, shared placeholder avatar, badges, labels
 src/scene/       Canvas, shared primitives, and office composition
-src/ui/          HTML header, camera reset, and fatal-error display
-src/agents/      Reserved
+src/ui/          HTML header, office key, selected-agent panel, error display
 src/environment/ Room shell, reusable workstation, and fixtures
 src/assets/      Reserved
 src/events/      Reserved
@@ -107,4 +110,4 @@ The authoritative documents are in the canonical location:
 - [Agent rules](../docs/visualizer/AGENTS.md)
 - [Security](../docs/visualizer/SECURITY.md)
 
-The documents' content and `src/agenthub/**` are unchanged. Work stops at Phase V1.
+The documents' content and `src/agenthub/**` are unchanged. Work stops at Phase V2.

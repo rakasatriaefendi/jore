@@ -118,6 +118,94 @@ body {
   text-align: right;
 }
 
+.agent-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 1px solid #8f8995;
+  border-radius: 0.25rem;
+  background: rgb(24 23 30 / 94%);
+  color: #fff;
+  padding: 0.25rem 0.4rem;
+  font:
+    600 0.75rem system-ui,
+    sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.agent-label-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.agent-label-layer .agent-label {
+  pointer-events: auto;
+}
+
+.agent-label:hover,
+.agent-label[aria-pressed='true'] {
+  border-color: #ed9abd;
+}
+
+.agent-label:focus-visible {
+  outline: 2px solid #ed9abd;
+  outline-offset: 3px;
+}
+
+.selected-agent-panel {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  max-width: calc(100% - 2rem);
+  min-width: 12rem;
+  border: 1px solid #756b79;
+  border-radius: 0.4rem;
+  background: rgb(28 27 34 / 95%);
+  padding: 0.7rem 0.85rem;
+  font-size: 0.8rem;
+}
+
+.selected-agent-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.selected-agent-heading h2 {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.selected-agent-heading button {
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.selected-agent-heading button:focus-visible {
+  outline: 2px solid #ed9abd;
+}
+
+.selected-agent-panel dl {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0.3rem 0.8rem;
+  margin: 0.6rem 0 0;
+}
+
+.selected-agent-panel dt {
+  color: #c4c0c9;
+}
+
+.selected-agent-panel dd {
+  margin: 0;
+  text-align: right;
+}
+
 .fatal-error {
   max-width: 36rem;
   margin: 0 auto;
