@@ -133,6 +133,26 @@ body {
   cursor: pointer;
 }
 
+.agent-label > span:first-child {
+  display: block;
+}
+
+.agent-status-indicator {
+  display: block;
+  margin-top: 0.1rem;
+  color: #d6d2db;
+  font-size: 0.68rem;
+  font-weight: 500;
+}
+
+.agent-status-indicator[data-visual-state='success'] {
+  color: #a8e9bb;
+}
+
+.agent-status-indicator[data-visual-state='error'] {
+  color: #ffb2b2;
+}
+
 .agent-label-layer {
   position: absolute;
   inset: 0;
@@ -204,6 +224,59 @@ body {
 .selected-agent-panel dd {
   margin: 0;
   text-align: right;
+}
+
+.mock-event-panel {
+  position: absolute;
+  z-index: 2;
+  top: 1rem;
+  left: 1rem;
+  display: grid;
+  gap: 0.4rem;
+  width: min(15rem, calc(100% - 2rem));
+  border: 1px solid #5a535e;
+  border-radius: 0.4rem;
+  background: rgb(28 27 34 / 94%);
+  padding: 0.65rem;
+  font-size: 0.75rem;
+}
+
+.mock-event-panel h2 {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.mock-event-panel label {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.mock-event-panel select,
+.mock-event-panel button {
+  min-width: 0;
+  border: 1px solid #756b79;
+  border-radius: 0.2rem;
+  background: #27232c;
+  color: #f4f4f6;
+  padding: 0.25rem;
+  font: inherit;
+}
+
+.mock-event-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.mock-event-panel button {
+  cursor: pointer;
+}
+
+.mock-event-panel :is(select, button):focus-visible {
+  outline: 2px solid #ed9abd;
+  outline-offset: 2px;
 }
 
 .fatal-error {

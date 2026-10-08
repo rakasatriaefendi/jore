@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { getAgentById } from './agents/AgentRegistry';
 import { AgentLabels } from './agents/AgentLabels';
 import type { AgentLabelPositions } from './agents/AgentLabelProjection';
+import { MockEventPanel } from './debug/MockEventPanel';
 import { SceneCanvas } from './scene/SceneCanvas';
 import { Header } from './ui/Header';
 import { OfficeKey } from './ui/OfficeKey';
@@ -29,6 +30,7 @@ export function App() {
           onSelectAgent={setSelectedAgentId}
         />
         <OfficeKey />
+        {import.meta.env.DEV && <MockEventPanel />}
         {selectedAgent && (
           <SelectedAgentPanel
             agent={selectedAgent}

@@ -1,18 +1,22 @@
-# JORE Visualizer — Phase V2
+# JORE Visualizer — Phase V3
 
 Optional, read-only browser sidecar for JORE v1.13 development. JORE Core stays
 in WSL on the v1.12.6 baseline and runs independently of this frontend.
 
-V2 contains an HTML header, a dark React Three Fiber office built from primitive
+V3 contains an HTML header, a dark React Three Fiber office built from primitive
 geometry, five workstations, and five simple humanoid placeholders. The office
 also has an entrance, wall whiteboard, archive area, and a controlled fatal-error
 fallback. Each agent shares one body design and uses a role accent, badge shape,
 and readable label. Clicking an agent or its label selects it and opens a small
-identity panel. Selection is local UI state; agents have no activity state yet.
+identity panel. Each agent has one semantic visual state in a Zustand store. All
+five start idle. The eight states change a static primitive pose and show a text
+and symbol status near the avatar; the selected panel also shows the state. A
+compact development-only mock panel can apply or reset states without Core data.
+Mock state resets on refresh and is not persisted.
 The camera supports bounded orbit, pan, zoom, and a Reset View button. The scene
 renders on demand. There are no downloaded assets, physics, event protocol,
-WebSocket client, or Core communication. Zustand is installed as required by the
-stack; no store is needed for static agents and local UI selection.
+WebSocket client, or Core communication. The mock actions are local development
+controls, not the final event format.
 
 ## Run on Windows
 
@@ -27,7 +31,9 @@ npm.cmd run dev
 ```
 
 Open <http://127.0.0.1:5173>. Drag to orbit, scroll to zoom, right-drag to pan,
-and use Reset View to restore the office overview.
+and use Reset View to restore the office overview. In development, use the
+"Mock visual events" panel to select an agent and state, apply it, or reset one
+or all agents. The panel is absent from production builds.
 WebGL2 must be available in the browser. If initialization fails, the app displays
 a fallback with a reload action; development errors also appear in the console.
 
@@ -48,10 +54,11 @@ npm.cmd run test:e2e
 - `build` type-checks source, tests, and configuration before creating `dist/`.
 - `lint` checks TypeScript and React rules and treats warnings as failures.
 - `format` applies Prettier; `format:check` checks without writing.
-- `test` runs the Vitest error-boundary and registry tests. `test:watch` watches.
+- `test` runs Vitest error-boundary, registry, visual-state store, and mock UI
+  tests. `test:watch` watches.
 - `test:e2e` builds and starts a dedicated production preview on port 4173, then
-  checks the header, root, live WebGL context, five agent labels, selection panel,
-  Reset View, and absence of browser errors. It saves a scene screenshot under ignored
+  checks the header, root, live WebGL context, five idle agent labels, selection
+  panel, Reset View, and absence of browser errors. It saves a scene screenshot under ignored
   `test-results/` and stops the server.
 - `preview` serves a previously built `dist/` on <http://127.0.0.1:4173>.
 
@@ -66,20 +73,20 @@ PowerShell execution-policy changes are needed. Ports 5173 and 4173 must be free
 ```text
 public/          Reserved for reviewed local assets; empty in V0
 src/app/         Bootstrap styling and application error boundary
-src/agents/      Typed agent registry, shared placeholder avatar, badges, labels
+src/agents/      Typed registry, shared avatar, badges, labels, state presentation
 src/scene/       Canvas, shared primitives, and office composition
 src/ui/          HTML header, office key, selected-agent panel, error display
 src/environment/ Room shell, reusable workstation, and fixtures
 src/assets/      Reserved
 src/events/      Reserved
-src/state/       Reserved; no speculative state
+src/state/       Agent visual-state store
 src/animation/   Reserved
 src/camera/      Orbit controls and reset behavior
-src/debug/       Reserved
+src/debug/       Development-only mock controls
 src/config/      Reserved
 src/types/       Reserved
 src/utils/       Reserved
-tests/unit/      Fatal-error behavior tests
+tests/unit/      Fatal-error, registry, state, and mock UI tests
 tests/e2e/       Production browser smoke test
 ```
 
@@ -110,4 +117,4 @@ The authoritative documents are in the canonical location:
 - [Agent rules](../docs/visualizer/AGENTS.md)
 - [Security](../docs/visualizer/SECURITY.md)
 
-The documents' content and `src/agenthub/**` are unchanged. Work stops at Phase V2.
+The documents' content and `src/agenthub/**` are unchanged. Work stops at Phase V3.

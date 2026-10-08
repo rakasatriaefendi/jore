@@ -1,5 +1,7 @@
 import type { AgentDefinition } from './AgentRegistry';
 import type { ProjectedAgentLabel } from './AgentLabelProjection';
+import { AgentStatusIndicator } from './AgentStatusIndicator';
+import { useAgentStore } from '../state/useAgentStore';
 
 interface AgentLabelProps {
   agent: AgentDefinition;
@@ -14,6 +16,9 @@ export function AgentLabel({
   selected,
   onSelect,
 }: AgentLabelProps) {
+  const visualState = useAgentStore(
+    (state) => state.visualStatesById[agent.id],
+  );
   if (!position?.visible) return null;
 
   return (
@@ -26,7 +31,8 @@ export function AgentLabel({
       data-testid={`agent-label-${agent.role}`}
       onClick={() => onSelect(agent.id)}
     >
-      {agent.displayName}
+      <span>{agent.displayName}</span>
+      <AgentStatusIndicator state={visualState ?? 'idle'} />
     </button>
   );
 }

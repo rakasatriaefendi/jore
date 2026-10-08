@@ -56,7 +56,11 @@ test('loads the office and resets the camera without errors', async ({
     'reviewer',
   ]) {
     await expect(page.getByTestId(`agent-label-${role}`)).toBeVisible();
+    await expect(page.getByTestId(`agent-label-${role}`)).toContainText('Idle');
   }
+  await expect(
+    page.getByRole('region', { name: 'Mock visual events' }),
+  ).toHaveCount(0);
   await page.getByRole('button', { name: 'Select Supervisor' }).click();
   const selectedAgent = page.getByRole('region', { name: 'Selected agent' });
   await expect(selectedAgent).toBeVisible();
@@ -65,6 +69,7 @@ test('loads the office and resets the camera without errors', async ({
   await expect(selectedAgent.locator('dd').nth(1)).toHaveText(
     'Supervisor workstation',
   );
+  await expect(selectedAgent.locator('dd').nth(2)).toHaveText('Idle');
   await expect(page.getByTestId('agent-label-supervisor')).toHaveAttribute(
     'aria-pressed',
     'true',
