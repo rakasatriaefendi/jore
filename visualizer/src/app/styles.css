@@ -1,0 +1,138 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #f4f4f6;
+  background: #121218;
+  color-scheme: dark;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  min-height: 320px;
+}
+
+.app-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #36323c;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.app-header p {
+  margin: 0;
+  color: #ed9abd;
+  font-size: 0.875rem;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.header-actions button {
+  border: 1px solid #8d7987;
+  border-radius: 0.25rem;
+  background: #27232c;
+  color: #f4f4f6;
+  padding: 0.4rem 0.7rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.header-actions button:hover {
+  border-color: #ed9abd;
+}
+
+.header-actions button:focus-visible {
+  outline: 2px solid #ed9abd;
+  outline-offset: 3px;
+}
+
+.visualizer-root {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+.office-key {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  max-width: calc(100% - 2rem);
+  border: 1px solid #5a535e;
+  border-radius: 0.4rem;
+  background: rgb(28 27 34 / 92%);
+  padding: 0.7rem 0.85rem;
+  font-size: 0.75rem;
+  pointer-events: none;
+}
+
+.office-key h2 {
+  margin: 0 0 0.4rem;
+  font-size: 0.8rem;
+}
+
+.office-key ul {
+  display: grid;
+  gap: 0.2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.office-key li {
+  display: grid;
+  grid-template-columns: 0.55rem auto auto;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.office-key-swatch {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+
+.office-key-location {
+  color: #c4c0c9;
+  text-align: right;
+}
+
+.fatal-error {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.fatal-error button {
+  border: 1px solid #ed9abd;
+  border-radius: 0.25rem;
+  padding: 0.65rem 1rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.fatal-error button:focus-visible {
+  outline: 2px solid #ed9abd;
+  outline-offset: 4px;
+}
