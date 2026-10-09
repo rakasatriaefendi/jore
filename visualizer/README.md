@@ -33,7 +33,8 @@ npm.cmd run dev
 Open <http://127.0.0.1:5173>. Drag to orbit, scroll to zoom, right-drag to pan,
 and use Reset View to restore the office overview. In development, use the
 "Mock visual events" panel to select an agent and state, apply it, or reset one
-or all agents. The panel is absent from production builds.
+or all agents. "Reset selected" resets the agent chosen in that panel. The panel
+is absent from production builds.
 WebGL2 must be available in the browser. If initialization fails, the app displays
 a fallback with a reload action; development errors also appear in the console.
 
@@ -49,6 +50,8 @@ npm.cmd run lint
 npm.cmd run format:check
 npm.cmd run test
 npm.cmd run test:e2e
+npm.cmd run test:e2e:prod
+npm.cmd run test:e2e:dev
 ```
 
 - `build` type-checks source, tests, and configuration before creating `dist/`.
@@ -56,17 +59,27 @@ npm.cmd run test:e2e
 - `format` applies Prettier; `format:check` checks without writing.
 - `test` runs Vitest error-boundary, registry, visual-state store, and mock UI
   tests. `test:watch` watches.
-- `test:e2e` builds and starts a dedicated production preview on port 4173, then
-  checks the header, root, live WebGL context, five idle agent labels, selection
-  panel, Reset View, and absence of browser errors. It saves a scene screenshot under ignored
-  `test-results/` and stops the server.
+- `test:e2e` runs both production and development browser tests. The production
+  mode builds and previews on port 4173, then checks the header, root, WebGL,
+  idle labels, selection, camera reset, and browser errors. The development mode
+  starts a dedicated Vite server on port 5174 and checks every mock state, both
+  reset controls, visible labels, the selected panel, and accessible names. The test runner owns
+  the Vite server and closes it after Playwright exits, including on test failure.
+  Modes can also be run separately with `test:e2e:prod` and `test:e2e:dev`.
+  The production smoke test saves a screenshot under ignored `test-results/`;
+  neither test compares pixels.
 - `preview` serves a previously built `dist/` on <http://127.0.0.1:4173>.
 
 Playwright needs its matching Chromium browser. If it reports a missing browser,
 explicitly install it with `npx.cmd playwright install chromium`, then rerun the
 smoke test. This downloads a browser to Playwright's per-user cache; no browser
 installation runs automatically in npm scripts. No system-wide dependencies or
-PowerShell execution-policy changes are needed. Ports 5173 and 4173 must be free.
+PowerShell execution-policy changes are needed. Ports 4173 and 5174 must be free
+for E2E; port 5173 is used only by the normal development server.
+The browser runner starts Vite in its own Node process using Vite's server API;
+it does not use Playwright's managed `webServer` shell command, which previously
+lingered during shutdown on this Windows setup. An interrupted Node process also
+releases its server socket.
 
 ## Structure
 
@@ -87,7 +100,7 @@ src/config/      Reserved
 src/types/       Reserved
 src/utils/       Reserved
 tests/unit/      Fatal-error, registry, state, and mock UI tests
-tests/e2e/       Production browser smoke test
+tests/e2e/       Production smoke and development mock-state tests
 ```
 
 Empty folders use `.gitkeep` so the requested structure survives checkout.

@@ -16,7 +16,9 @@
     "format:check": "prettier --check .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test"
+    "test:e2e": "npm run test:e2e:prod && npm run test:e2e:dev",
+    "test:e2e:prod": "npm run build && node scripts/run-e2e.mjs production",
+    "test:e2e:dev": "node scripts/run-e2e.mjs development"
   },
   "dependencies": {
     "@react-three/drei": "10.7.9",

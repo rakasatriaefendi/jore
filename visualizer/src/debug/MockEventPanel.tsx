@@ -58,7 +58,7 @@ export function MockEventPanel() {
             dispatchMockAgentAction({ kind: 'reset-agent', agentId })
           }
         >
-          Reset agent
+          Reset selected
         </button>
         <button
           type="button"

@@ -61,7 +61,9 @@ test('loads the office and resets the camera without errors', async ({
   await expect(
     page.getByRole('region', { name: 'Mock visual events' }),
   ).toHaveCount(0);
-  await page.getByRole('button', { name: 'Select Supervisor' }).click();
+  await page
+    .getByRole('button', { name: 'Select Supervisor, state Idle' })
+    .click();
   const selectedAgent = page.getByRole('region', { name: 'Selected agent' });
   await expect(selectedAgent).toBeVisible();
   await expect(selectedAgent.locator('dt').first()).toHaveText('Role');
@@ -76,7 +78,9 @@ test('loads the office and resets the camera without errors', async ({
   );
   await page.getByRole('button', { name: 'Clear agent selection' }).click();
   await expect(selectedAgent).toHaveCount(0);
-  await page.getByRole('button', { name: 'Select Backend' }).click();
+  await page
+    .getByRole('button', { name: 'Select Backend, state Idle' })
+    .click();
   await expect(selectedAgent.locator('dd').first()).toHaveText('Backend');
   await expect(selectedAgent.locator('dd').nth(1)).toHaveText(
     'Backend workstation',
